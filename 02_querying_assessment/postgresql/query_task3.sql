@@ -1,0 +1,31 @@
+-- Task 3: Staff Performance Review
+-- At the end of the month, the owner wants to reward the hardest-working cashiers.
+-- To decide fairly, they want to see how many orders each staff member has processed,
+-- with the busiest staff member appearing at the top of the list.
+--
+-- Hint: Write a query to find the total number of orders processed by each staff member.
+-- The result should show the staff member's full name (concatenated) and their total order count,
+-- ordered by the count in descending order.
+
+-- Bonus: The dataset is identical in the MongoDB database, meaning the same business insight can be retrieved.
+-- Write the equivalent query for MongoDB. See query_task3_bonus.mongodb.js
+
+-- ---------------------------------------------------------------
+-- Your thinking process (required)
+-- ---------------------------------------------------------------
+-- Before writing your query, explain in your own words how you
+-- interpreted the task, what data you need, which table(s) are
+-- involved, and what SQL concepts you plan to use.
+-- Write in English or Thai. Do not skip this step.
+--
+-- Your thinking:
+-- each staff group by staff name 
+--sort by busiest(most order?)
+-- let see order table first
+--SELECT *from orders limit 10
+--- only show staff id use join staff id now make sure by see er
+---- want to reward cashie so have to be only cashie role
+---see all first then change to given column
+--SELECT * from staff s JOIN orders o on s.staff_id=o.staff_id ; 
+----join success now group by staff id <=see staff each person count order_id then make it call count order for order by desc + 
+SELECT s.first_name,s.last_name,count(o.order_id) as count_orders from staff s JOIN orders o on s.staff_id=o.staff_id  WHERE s.role='Cashier' GROUP BY s.staff_id ORDER BY count_orders DESC; 
