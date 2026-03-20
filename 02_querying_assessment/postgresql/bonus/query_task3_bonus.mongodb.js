@@ -49,7 +49,10 @@
                 {
 
                 $group: {
-                  _id: {firstName:"$staff_data.first_name",lastName:"$staff_data.last_name"}
+                  _id: {
+                    firstName:"$staff_data.first_name",
+                    lastName:"$staff_data.last_name"
+                  }
                 ,
                   Total_orders: {
                    $sum:1
@@ -58,6 +61,12 @@
                 }
 
                 }
+               ,
+               {
+                $sort: {
+                  Total_orders:-1
+                }
+               }
                ,
                 {
                     $project: {
