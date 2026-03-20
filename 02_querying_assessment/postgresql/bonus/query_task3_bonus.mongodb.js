@@ -20,3 +20,53 @@
 //
 // Your thinking:
 //
+
+    use("chrome-burger-db")
+    ///// see collection orders first 
+        //db.orders.findOne()
+        //// have name of staff already now match by aggregrate
+       // db.staff.findOne()
+        
+        db.orders.aggregate(
+            [ 
+                {   
+                    $lookup: {
+                      from: "staff",
+                      localField: "staff.staff_id",
+                      foreignField: "_id",
+                      as: "staff_data"
+                    }
+
+                },
+
+                {
+                    $match: {
+                      "staff_data.role":"Cashier"
+                      
+                    }
+                }
+                ,
+                {
+
+                $group: {
+                  _id: {firstName:"$staff_data.first_name",lastName:"$staff_data.last_name"}
+                ,
+                  Total_orders: {
+                   $sum:1
+                  }
+                  
+                }
+
+                }
+               ,
+                {
+                    $project: {
+                        _id:0,
+                        firstName:"$_id.firstName",
+                        lastName:"$_id.lastName",
+                      Total_orders:1
+                    }
+                }
+        ]
+            
+        )

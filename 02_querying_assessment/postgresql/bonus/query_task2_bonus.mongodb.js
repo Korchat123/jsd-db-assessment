@@ -17,4 +17,17 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+//1.find only condition
+use("chrome-burger-db")
+
+    db.staff.find(
+        {
+            role:"Cook"
+        },
+        {
+            _id:0,
+            first_name:1,
+            last_name:1
+        }
+
+    )

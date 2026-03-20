@@ -1,3 +1,4 @@
+//BONUS STARTED TIME 12:44
 // Task 1 Bonus: Sides Menu Board
 // The owner wants to update the printed menu board that displays only the side dishes.
 // They need a list of every item in the 'Side' category along with its current price,
@@ -17,4 +18,16 @@
 // Write in English or Thai. Do not skip this step.
 //
 // Your thinking:
-//
+//1.first check nosql collection first
+use("chrome-burger-db")
+//db.menu_items.find();
+//2. use category:"Side" be filter then another just show name and price and_id:0
+    db.menu_items.find(
+        {
+            category:"Side"
+        },{
+            _id:0,
+            name:1,
+            price:1
+        }
+    )

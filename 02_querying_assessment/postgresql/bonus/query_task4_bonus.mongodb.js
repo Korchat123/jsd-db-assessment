@@ -20,3 +20,29 @@
 //
 // Your thinking:
 //
+use("chrome-burger-db")
+//db.ingredients.findOne()
+
+db.ingredients.aggregate([
+    {
+        $lookup: {
+          from: "suppliers",
+          localField: "supplier_id",
+          foreignField: "_id",
+          as: "supplier_info"
+        }
+    }
+    ,{
+        $match: {
+          "supplier_info.name":'Freshest Farm Produce'
+        } 
+    },
+    {
+        $project: {
+          _id:0,
+          name:1
+        }
+    }
+
+])
+//// finish bonus sql to nosql  14:23 start 12:44
