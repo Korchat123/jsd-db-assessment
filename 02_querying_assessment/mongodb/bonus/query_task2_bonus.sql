@@ -19,3 +19,9 @@
 --
 -- Your thinking:
 --
+--SELECT * From  staff
+SELECT order_date ,SUM(o.total_price)AS total_order FROM orders o 
+JOIN staff s on o.staff_id=s.staff_id 
+where s.first_name='Jane' and s.last_name='Doe' 
+GROUP BY s.staff_id,o.order_date
+

@@ -1,3 +1,5 @@
+
+
 -- Task 4 Bonus: Total Revenue Summary
 -- At the end of the trading period, the owner wants a single figure that shows how much revenue
 -- the truck has generated across all recorded orders. This number will be used in their
@@ -18,3 +20,7 @@
 --
 -- Your thinking:
 --
+
+
+    SELECT SUM(total_price) as total_revenue FROM orders 
+    ------FINISH 14:46 START 14:26

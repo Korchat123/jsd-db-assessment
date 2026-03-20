@@ -1,3 +1,4 @@
+--Start 14:26
 -- Task 1 Bonus: Budget Meal Deal
 -- The owner wants to introduce a budget-friendly meal deal promotion and needs to identify
 -- which menu items could be included. To qualify, an item must be priced under $10.00,
@@ -17,4 +18,5 @@
 -- Write in English or Thai. Do not skip this step.
 --
 -- Your thinking:
---
+-- 
+SELECT name ,price FROM menuitems WHERE price<10.00 ;

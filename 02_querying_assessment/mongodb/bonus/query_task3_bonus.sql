@@ -18,3 +18,4 @@
 --
 -- Your thinking:
 --
+SELECT name,stock_level FROM Ingredients WHERE stock_level>100
