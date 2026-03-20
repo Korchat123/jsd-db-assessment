@@ -22,3 +22,5 @@
 -- SELECT * From ingredients i join suppliers s on i.supplier_id=s.supplier_id
 -- join success see ingredients name then find supplier name Freshest....
  SELECT i.name From ingredients i join suppliers s on i.supplier_id=s.supplier_id WHERE s.name='Freshest Farm Produce';
+----FINISH Normal assessment 12:14  use hint 2 time -----
+----
